@@ -1,0 +1,67 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="close('Close')" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title">{$ curMer.name $}</h3>
+        </div>
+        <div class="modal-body">
+            <!--Body of details page-->
+            <div id="details-container">
+                
+                <div ng-show="curMer.logo" id="title" class="text-center">
+                    <img style="max-height: 200px; max-width: 100%"  class="img-rounded" ng-src="/media/{$ curMer.logo $}">
+                </div>
+                
+                <div id="about" class="detail-section box-transp row">
+                    <h4><span class="glyphicon glyphicon-info-sign"></span> Info</h4>
+                    <div class="well">
+                        <h3 id="shop-tagline">{$ curMer.tagline $}</h3>
+                        <div id="shop-description" ng-bind-html="curMer.description"></div>
+                    </div>
+                </div>  
+
+                <div ng-show="curMer.street" id="shop-address" class="row box-transp">
+                    <h4><span class="glyphicon glyphicon-map-marker"></span> Location</h4>
+                    
+                    <div id="addresstext" class="well col-sm-4 col-sm-offset-1"> 
+                        {$ curMer.street $}
+                        <br>
+                        {$ curMer.city $}, {$ curMer.state $} {$ curMer.zip $}
+                    </div>
+                    
+                    <button style="background-image: url(/static/home/images/maps_mock.PNG); margin: 0 2em 0 1em; height: 200px; color: darkCyan;" 
+			class="btn btn-default col-sm-6" id="showMapButton" onClick="$('#googlemap').show();$(this).hide()">Show google map</button>
+                    <div id="googlemap" class="col-sm-6" style="display:none">
+                        <iframe
+                          width="100%"
+                          height="200"
+                          frameborder="0" style="border:0"
+                          ng-src="{$ curMer.googMapsUrl $}">
+                        </iframe>
+                    </div>
+                    
+                </div>
+
+                <div id="shop-contact" class="box-transp row">
+                    <h4><span class="glyphicon glyphicon-user"></span> Contact</h4>
+                        <div class="well">
+                            <span ng-show="curMer.email" class="glyphicon glyphicon-envelope" style="padding: 1em;">
+                                    <a href="mailto:{$ curMer.email $}">{$ curMer.email $}</a>
+                            </span>
+    
+                            <div ng-show="curMer.phone">
+                                <span class="glyphicon glyphicon-earphone" style="padding: 1em;"></span><a href="tel:{$ curMer.phone $}">{$ curMer.phone $}</a>
+                            </div>
+                            <div ng-show="curMer.website"></div>
+                                <span class="glyphicon glyphicon-link" style="padding: 1em;"></span><a target="_blank" href="{$ curMer.website $}">{$ curMer.website $}</a>
+                            </div>
+                        </div>
+                        
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" ng-click="close('closing...')" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+                
+            </div>
+        </div>
+</div>

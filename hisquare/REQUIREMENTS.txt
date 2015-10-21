@@ -1,0 +1,5 @@
+Django==1.8.4
+Pillow==2.9.0
+pip==7.1.2
+mod_wsgi==4.4.13
+setuptools==18.2

@@ -1,0 +1,73 @@
+{% extends 'home/index.html' %}
+
+{% block content %}
+
+{% if categoryname %}
+    <div id="content"></div>
+    <h1 class="wh bigh padh" id="catheader">{{ categoryname }}</h1>
+{% endif %}
+
+<div class="box-transp">
+    {% if carousel_imgs %}
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+          
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                {% for item in carousel_imgs %}
+                    <!--Using background image instead of inline-->
+                    <div class="item{% if item.active %} active {% endif %}" style="background: url({{ item.image.image.url }}) no-repeat left center; background-size: cover; height: 200px;">
+                    </div>
+                {% endfor %}
+            </div>
+            <a ng-non-bindable class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a ng-non-bindable class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    {% endif %}
+        <hr>
+        
+        <p onclick="javascript:document.getElementById('filter').focus()">Search:</p>
+        <input id="filter" name="filter" type="text" class="form-control">
+
+        <hr style="clear:both;">
+        <div id="results-p" style="display: none;"><h3>Results:</h3></div>
+    
+        <!--Display search results-->
+        <div class="alert alert-info" role="alert" id="shopsfound" style="display:none;"></div>
+    
+        <div id="shop-list">
+            <div class="row">
+            {% for shop in shops %}
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <div class="shop-box-logo">
+                            <a href="{% url 'home:details' shop.id %}">
+                                <img src="{{ shop.logo.url }}" alt="{{ shop.logo.name }}">
+                            </a>
+                        </div>
+                        <div class="shop-box-caption">
+                            <h4><a href="{% url 'home:details' shop.id %}">{{ shop.name }}</a>
+                            </h4>
+                            <p><b>{{ shop.tagline }}</b></p>
+        
+                        </div>
+                    </div>
+                </div>
+            {% if forloop.counter|divisibleby:3 %}
+                </div>
+                <div class="row">
+            {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

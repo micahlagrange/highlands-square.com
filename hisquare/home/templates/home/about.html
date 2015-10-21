@@ -1,0 +1,50 @@
+{% extends 'home/index.html' %}
+{% load staticfiles %}
+{% block content %}
+    <h1 class="wh bigh padh">About</h1>
+    <div id="content" class="box-transp">
+        <h1 class="text-center">Highlands Square Merchants Association</h1>
+        
+        {% with about.aboutpromotion_set.all as ap %}
+            {% for promo in ap %}
+                <blockquote>
+                    <p class="textbox">{{ promo.quote }}</p>
+                    <footer><cite title="Source Title">{{ promo.promoter }}</cite>, {{ promo.date_quoted|date:"o" }}</footer>
+                </blockquote>
+            {% endfor %}
+        {% endwith %}
+        <p class="textbox">{{ about.text }}</p>
+    </div>
+    
+    <div class="box-transp">
+        <div class="aboutbox">
+            <div class="col-md-6">
+                <h2><span class="glyphicon glyphicon-calendar"></span> Events</h2>
+                <div>
+                    {% if streetfair %}
+                        <a href="{% url 'home:events' %}#eventId{{ streetfair.id }}" class="btn btn-default aboutpage-button">Highlands Street Fair</a>
+                    {% endif %}
+                    {% if harvestfestival %}
+                        <a href="{% url 'home:events' %}#eventId{{ harvestfestival.id }}" class="btn btn-default aboutpage-button">Harvest Festival</a>
+                    {% endif %}
+                    <a href="{% url 'home:events' %}" class="btn btn-default aboutpage-button">All Events</a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">        
+                <h2><span class="glyphicon glyphicon-th"></span> Merchants</h2>
+                <div>
+                    <a ng-repeat="cat in home.categories" href="/hisquare/merchants/{$ cat.name $}" class="btn btn-primary aboutpage-button">{$ cat.name $}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="box-transp" style="margin-top: 2em;">
+        <h2>Highlands Map</h2>
+        <p class="textbox">Click to see PDF or right-click to download as image.</p>
+        <a href="{% static 'home/images/Highlands-map-04-15-15.pdf' %}">
+            <img width="100%" src="{% static 'home/images/Highlands-map-04-15-15.jpg' %}">
+        </a>
+    </div>
+{% endblock %}

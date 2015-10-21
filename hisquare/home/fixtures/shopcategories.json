@@ -1,0 +1,7 @@
+[
+	{"model": "hisquare.ShopCategory", "fields": {"name": "Dining"}},
+	{"model": "hisquare.ShopCategory", "fields": {"name": "Shopping"}},
+	{"model": "hisquare.ShopCategory", "fields": {"name": "Wellness"}},
+	{"model": "hisquare.ShopCategory", "fields": {"name": "Beauty"}},
+	{"model": "hisquare.ShopCategory", "fields": {"name": "Services"}}
+]

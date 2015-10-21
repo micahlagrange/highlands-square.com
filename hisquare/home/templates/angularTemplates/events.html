@@ -1,0 +1,43 @@
+
+<div id="content">
+	<h1 class="wh bigh padh">Events</h1>
+</div>
+
+<!--Today's events-->
+<div ng-show="events.events.todaysEvents" id="event-container">
+	<hr>
+	<h1 class="wh">Today</h1>
+	
+	<div ng-repeat="event in events.events.todaysEvents" id="{$ event.concat $}" class="box-transp">
+		{$ event.concat $}
+		<div class="row">
+			<div ng-show="event.eventimage" class="col-sm-4 event-image">
+				<img ng-src="https://hisquare-multivoxmuse.c9.io/media/{$ event.eventimage $}">
+			</div>
+			<div class="col-sm-8 event-box">
+				<h2 class="event-title">{$ event.title $}</h2>
+				<h4 class="event-date">{$ event.startdate | date:"EEE | MMM dd, yyyy | h:mma" $} - {$ event.enddate | date:"h:mma" $}</h4>
+				<div class="event-text">{$ event.description $}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="event-container">
+    
+	<hr ng-show="events.events.todaysEvents">
+	<h1 ng-show="events.events.todaysEvents" class="wh">Future Events</h1>
+	
+	<div ng-repeat="event in events.events.futureEvents" class="box-transp" id="{$ event.concat $}">
+		<div class="row">
+			<div ng-show="event.eventimage" class="col-sm-4 event-image">
+				<img ng-src="https://hisquare-multivoxmuse.c9.io/media/{$ event.eventimage $}">
+			</div>
+			<div class="col-sm-8 event-box">
+				<h2 class="event-title">{$ event.title $}</h2>
+				<h4 class="event-date">{$ event.startdate | date:"EEE | MMM dd, yyyy | h:mma" $} - {$ event.enddate | date:"h:mma" $}</h4>
+				<div class="event-text">{$ event.description $}</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,186 @@
+/*Background image css*/            
+body {
+    background: url(/static/home/images/background.JPG) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 100px;
+}
+
+/* Other css */
+h1 { font-family: 'Cantarell', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Bootstrap and angular */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+
+/*Navigation*/
+#logoimg.full-logo { width: 100%; max-width: 200px; margin-bottom: 2em; }
+#logoimg.small-logo { width: 20px; }
+#logo-nav-brand { width: 30px; }
+#sidebar.affix-top {
+    position: static;
+}
+
+#sidebar.affix {
+    position: fixed;
+}
+#sidebar.affix img, #sidebar.affix-bottom img { display: none;}
+#sidebar.affix-bottom {
+    position: absolute;
+}
+.activeitem       { background-color: #8d181a !important; background-color: rgba(135,26,30,0.7) !important; border: none; color: white !important; }
+.activeitem:hover { background-color: #8d181a !important; background-color: rgba(135,26,30,0.7) !important; color: black !important; font-weight: bold; }
+.list-group-item:hover { font-weight: bold;}
+.dropdown-menu li  a { padding: 10px 0 10px 1em; }
+
+
+/*Nice boxes*/
+.textbox {
+    font-family: 'Khula';
+}
+.padded {
+    padding-left: 2em;
+}
+
+.wh { 
+    color: white; 
+    text-shadow: 2px 2px 4px black;
+}
+
+.bigh { display: inline; }
+.padh { padding-left: 2em;}
+
+
+#nav-sidebar { max-width: 225px;}
+#main-pane { margin: 6em 0 2em 0; padding: 0 0 2em 0; min-height: 18em; max-width: 900px;}
+
+.box-transp { background-color: rgba(255,255,255,.9)  !important; margin-top: 2em; padding: 2em 1em 1em 1em;}
+#event-container { margin-bottom: 4em; }
+.aboutbox { overflow: hidden;}
+
+.transp { background-color: rgba(255,255,255,.9) }
+.spacer { margin-bottom: 2em; padding-bottom: 2em;}
+
+.under-emphasize { text-align: center; color: #888888 }
+
+#shop-list {padding: 1em 3em 0 3em;}
+
+.thumbnail:hover { border-color: darkGray; box-shadow: 3px 3px 10px darkGray; }
+.thumbnail:hover p, .thumbnail:hover a { text-decoration: none; }
+
+.shop-box-logo { height: 80px; background-size: 80% !important; }
+.shop-box-caption { padding: 5px; height: 105px; margin-bottom: 10px;
+                    overflow: hidden; } 
+
+.shop-box-header { text-decoration: none; font-family: 'Cantarell'; font-size: 120%; text-align: center; }
+.shop-box-text { text-decoration: none; color: black; font-size: 90%; text-align: center;  }
+
+.activemerch:target, .activemerch:hover, .activemerch:active { box-shadow: 1px 1px 10px darkCyan; }
+
+
+carousel { max-width: 10em !important;}
+
+.aboutpage-button { margin-top: 8px; }
+
+#carousel-example-generic {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.custom-carousel-caption {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6) !important;
+}
+
+.custom-carousel-caption h2 { 
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.custom-carousel-caption p { 
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#details-container { padding-left: 1em; padding-right: 1em;}
+#details-container img { border: 1px solid black;}
+
+.detail-section {
+    margin-top: 2em;
+}
+.detail-section > h4 {
+    padding-bottom: 0;
+}
+#shop-description { padding: 1em;}
+
+blockquote { color: darkred; font-style: italic; border-left: 3px solid #ccc; margin: 2em 0 2em 2em; padding: 0 0 0 1em;}
+blockquote > footer { padding: 0; margin: 0 0 1em 0; }
+
+.carousel-caption {
+    background: rgba(0,0,0,0.5) !important;
+}
+
+.event-box > h2 {
+    margin: 0;
+}
+
+.event-image {
+    vertical-align:middle;
+    text-align:center;
+    overflow: hidden;
+    max-height: 200px;
+    margin-bottom: 2em;
+}
+.event-image > img {
+     max-height: 100%;
+     max-width: 100%;
+}
+
+.event-title {
+    font-family: 'Oswald', sans-serif;
+}
+
+.event-date {
+    font-family: 'Titillium Web', sans-serif; color: darkred;
+}
+
+.event-text {
+    max-height: 150px;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: auto;
+    font-family: 'Khula';
+    
+}
+
+#footer{
+    background-color: rgba(255,255,255,.9);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .bigh { display: none; }
+    .padh { padding: 0 0 0 0; text-align: center;}
+    .aboutpage-button { width: 100%; }
+}
+
+@media (max-width: 770px) {
+    /*Background image css*/            
+    body {
+        background: url(/static/home/images/background.JPG) no-repeat center center fixed; 
+        background-size: cover;
+        padding-top: 70px;
+        height: 610px;
+    }
+    
+    #shop-list {padding: 1em 3em 0 3em;}
+    .shop-box-caption { height: 80px; }
+}

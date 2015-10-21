@@ -1,0 +1,41 @@
+<h1 class="wh bigh padh">About</h1>
+<div id="content" class="box-transp">
+    <h1 class="text-center">Highlands Square Merchants Association</h1>
+    
+    <blockquote ng-repeat="pro in a.about.promos">
+        <p class="textbox">{$ pro.quote $}</p>
+        <footer><cite title="Source Title">{$ pro.promoter $}</cite>, {$ pro.date_quoted $}</footer>
+    </blockquote>
+
+    <p class="textbox">{$ a.about.text $}</p>
+    
+</div>
+
+<div class="box-transp">
+    <div class="aboutbox">
+        <div class="col-md-6">
+            <h2><span class="glyphicon glyphicon-calendar"></span> Events</h2>
+            <div style="margin-bottom: 5em">
+                <!--<a ng-show="a.about.streetfair" ng-href="#/events\#{$ a.about.streetfair $}" class="btn btn-default aboutpage-button">Highlands Street Fair</a>-->
+                
+                <!--<a ng-show="a.about.harvestfestival" ng-href="#events#{$ a.about.harvestfestival $}" class="btn btn-default aboutpage-button">Harvest Festival</a>-->
+                <a ng-href="#/events" class="btn btn-default aboutpage-button col-xs-12" ng-click="cats.setActiveTab('events')">Events</a>
+            </div>
+        </div>
+        
+        <div class="col-md-6">        
+            <h2><span class="glyphicon glyphicon-th"></span> Merchants</h2>
+            <a ng-repeat="cat in cats.categories" ng-href="/#/merchants/{$ cat.name $}" class="btn btn-primary aboutpage-button col-xs-12" ng-click="cats.setActiveTab('{$ cat.name $}')">
+                {$ cat.name $}
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="box-transp" style="margin-top: 2em;">
+    <h2>Highlands Map</h2>
+    <p class="textbox">Click to see PDF or right-click to download as image.</p>
+    <a href="/static/home/images/Highlands-map-04-15-15.pdf">
+        <img width="100%" src="/static/home/images/Highlands-map-04-15-15.jpg">
+    </a>
+</div>

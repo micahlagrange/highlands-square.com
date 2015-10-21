@@ -1,0 +1,41 @@
+
+<div>
+    <h1 ng-show-"merch.merchants.categoryname" class="wh bigh padh" id="catheader">{$ merch.merchants.categoryname $}</h1>
+    <div class="box-transp">
+        <carousel interval="merch.myInterval" no-wrap="merch.noWrapSlides">
+            <slide ng-repeat="img in merch.merchants.carousel_imgs" active="slide.active">
+                <div ng-style="{ 'background': 'url(/media/' + img.image + ') no-repeat left center', 'background-size': 'cover', 'height': '200px' }"></div>
+            </slide>
+        </carousel>
+        <hr>
+        
+        <p ng-hide="merch.merchants" style="color:red">An error has occurred.</p>
+        
+        <p ng-show="merch.merchants" onclick="javascript:document.getElementById('filter').focus()">Search:</p>
+        <input ng-show="merch.merchants" id="filter" name="filter" type="text" class="form-control" ng-model="merch.query" placeholder="Filter by" ng-keyup="merch.clearSearch($event)">
+    
+        <hr style="clear:both;">
+        <div id="results-p" style="display: none;"><h3>Results:</h3></div>
+    
+        <!--Display search results-->
+        <div class="alert alert-info" role="alert" id="shopsfound" style="display:none;"></div>
+    
+        <div id="shop-list">
+            <div class="row">
+                <div ng-repeat="m in merch.merchants.merchants | filter: merch.query | orderBy: m.name" class="col-sm-4">
+                    <div class="thumbnail">
+                        <a href ng-click="merch.open(m)">
+                            <div ng-show="m.logo" class="shop-box-logo" ng-style="{ 'background': 'url(/media/' + m.logo + ') no-repeat center center', 
+'border-radius': 
+'5px' }"></div>
+                            <div class="shop-box-caption">
+                                <p class="shop-box-header">{$ m.name $}</p>
+                                <p class="shop-box-text">{$ m.tagline $}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
