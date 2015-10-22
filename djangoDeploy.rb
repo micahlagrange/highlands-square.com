@@ -33,9 +33,10 @@ end
 ### Functions:
 
 # Use rsync so the same files are not constantly deployed over and over unless the version changes
+puts "src: #{SRC}/* | host #{HOST} | destination dir: #{DESTDIR}" 
 def deploy_static_files ()
-	system("rsync", "-a", "--no-o", "--no-p", "#{SRC}/*", "#{USER}@#{HOST}:#{DESTDIR}")
-	system("ssh", "-t", "#{USER}@#{HOST}", "sudo chmod -R 755 #{DESTDIR}")
+	system("rsync", "-a", "--no-o", "--no-p", "#{USER}@#{SRC}/*", "#{HOST}:#{DESTDIR}")
+	# system("ssh", "-t", "#{USER}@#{HOST}", "sudo chmod -R 755 #{DESTDIR}")
 	# system("ssh", "-t", "#{USER}@#{HOST}", "sudo chown -R www-data:www-data #{DESTDIR}")
 end
 
