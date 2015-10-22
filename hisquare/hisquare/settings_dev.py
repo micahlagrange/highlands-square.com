@@ -28,7 +28,7 @@ INSTALLED_APPS = (
     'home'
 )
 
-STATIC_DIR = os.path.join(BASE_DIR, "static")
+STATIC_DIR = os.path.join(BASE_DIR, "home", "static")
 
 # FIXTURE_DIRS = (
 #     os.path.join(BASE_DIR, 'hisquare', 'fixtures')
