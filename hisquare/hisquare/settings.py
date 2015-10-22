@@ -14,14 +14,15 @@ import socket
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-DEV_HOSTS = ('Micahs-MacBook-Pro.local')
+DEV_HOSTS = ('Micahs-MacBook-Pro.local', 'piserv')
 PROD_HOST = 'hsma01p'
 
 if socket.gethostname() in DEV_HOSTS:
     from hisquare.settings_dev import *
 elif socket.gethostname() == PROD_HOST:
     from hisquare.settings_prod import *
-
+else:
+    from hisquare.settings_dev import *
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
