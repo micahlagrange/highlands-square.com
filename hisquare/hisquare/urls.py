@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     url(r'^$', home.views.index, name='index'),
     
     # Admin Urls
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^hsma-admin/', include(admin.site.urls)),
 )
 
 
