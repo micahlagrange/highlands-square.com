@@ -3,8 +3,22 @@ __author__ = 'UTURNMI'
 DEBUG = TEMPLATE_DEBUG = False
 
 
+with open('/etc/highlands-square.com.conf/db_password') as f:
+    PASSWORD = f.read().strip()
+
 # db, media, static dirs
-DATABASE_DIR = '/www/hisquare/db'
+DATABASES = {
+    'default': {
+      'NAME': 'django_db',
+      'ENGINE': 'mysql.connector.django',
+      'USER': 'root',
+      'PASSWORD': PASSWORD,
+      'OPTIONS': {
+        'autocommit': True,
+      },
+    }
+}
+
 MEDIA_ROOT = '/www/hisquare/media'
 STATIC_ROOT = '/www/hisquare/static'
 STATIC_DIR = 'www/hisquare/static'

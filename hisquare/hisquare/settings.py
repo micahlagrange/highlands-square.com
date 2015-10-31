@@ -31,7 +31,7 @@ else:
 with open('/etc/highlands-square.com.conf/secretkey') as f:
 	    SECRET_KEY = f.read().strip()
 	    
-ALLOWED_HOSTS = ['highlands-square.com', '104.236.153.248', 'localhost']
+ALLOWED_HOSTS = ['highlands-square.com', '104.236.153.248', 'localhost', 127.0.0.1]
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -47,19 +47,12 @@ ROOT_URLCONF = 'hisquare.urls'
 
 WSGI_APPLICATION = 'hisquare.wsgi.application'
 
-
-# Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DATABASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+
 
 TIME_ZONE = 'America/Denver'
 

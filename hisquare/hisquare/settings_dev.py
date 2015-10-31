@@ -5,6 +5,15 @@ from hisquare.settings import BASE_DIR
 
 # db, media, static dirs
 DATABASE_DIR = '/usr/local/highlands-square.com/db' 
+
+# Database
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+      'NAME': os.path.join(DATABASE_DIR, 'db.sqlite3'),
+  }
+}
+
 MEDIA_ROOT = '/usr/local/highlands-square.com/media'
 STATIC_ROOT = '/usr/local/highlands-square.com/static'
 
