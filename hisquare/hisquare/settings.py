@@ -31,7 +31,12 @@ else:
 with open('/etc/highlands-square.com.conf/secretkey') as f:
 	    SECRET_KEY = f.read().strip()
 	    
-ALLOWED_HOSTS = ['highlands-square.com', '104.236.153.248', 'localhost', 127.0.0.1]
+ALLOWED_HOSTS = [
+    'highlands-square.com', 
+    '104.236.153.248', 
+    'localhost', 
+    '127.0.0.1',
+]
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
