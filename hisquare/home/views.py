@@ -74,8 +74,8 @@ def index(request):
     
     return render(request, 'home/index.html')
 
-def category(request, catname):
-    categorymodel = get_object_or_404(ShopCategory, name__iexact=catname)
+def category(request, catcode):
+    categorymodel = get_object_or_404(ShopCategory, code__iexact=catcode)
 
     shops = Business.objects.filter(category_id=categorymodel.id)
     catimages = CategoryImage.objects.filter(category_id=categorymodel.id)

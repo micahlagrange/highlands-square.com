@@ -18,8 +18,8 @@ MEDIA_ROOT = '/usr/local/highlands-square.com/media'
 STATIC_ROOT = '/usr/local/highlands-square.com/static'
 
 # Static, media urls
-STATIC_URL = 'http://104.236.153.248/static/'
-MEDIA_URL = 'http://104.236.153.248/media/'
+STATIC_URL = '//127.0.0.1/static/'
+MEDIA_URL = '//127.0.0.1/media/'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
