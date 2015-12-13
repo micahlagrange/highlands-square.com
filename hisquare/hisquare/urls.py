@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^get/categories/$', home.views.get_all_categories),
     url(r'^get/events/$', home.views.get_all_events),
     url(r'^get/about/$', home.views.get_about_page),
-    url(r'^get/merchants/(?P<catname>\w+)/$', home.views.get_merchants_by_category),
+    url(r'^get/merchants/(?P<catcode>\w+)/$', home.views.get_merchants_by_category),
     url(r'^get/merchant/(?P<m_id>\d+)/$', home.views.get_merchant_by_id),
     
     # Angular templates
