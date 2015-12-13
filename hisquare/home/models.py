@@ -35,8 +35,8 @@ class ShopCategory(models.Model):
 
 class Business(models.Model):
     name = models.CharField(max_length=200, null=True, blank=False)
-    tagline = models.CharField(max_length=75, null=True, blank=False)
-    description = models.TextField(max_length=800, null=True, blank=False)
+    tagline = models.CharField(max_length=75, null=True, blank=True)
+    description = models.TextField(max_length=800, null=True, blank=True)
     logo = models.ImageField(upload_to='businesses/logos', null=True, blank=True)
     website = models.URLField(null=True, blank=True)
     category = models.ForeignKey(ShopCategory, null=True, blank=False, on_delete=models.SET_NULL)

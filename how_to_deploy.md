@@ -44,21 +44,20 @@ Use the following config to set up your nginx proxy pass from port 80 to gather 
 
 ```
 server {
-        client_max_body_size 100M;
-        listen 80 default_server;
-        listen [::]:80 default_server ipv6only=on;
+  client_max_body_size 100M;
+  listen 80 default_server;
+  listen [::]:80 default_server ipv6only=on;
 
-        root /www/hisquare;
-        # index index.html index.htm;
+  root /www/hisquare;
+  # index index.html index.htm;
 
-        # Make site accessible from http://localhost/
-        server_name 104.236.153.248;
+  # Make site accessible from domain/hostname
+  server_name highlands-square.com;
 
-        location /media/ {}
-        location /static/ {}
+  location /media/ {}
+  location /static/ {}
 
-        location / {
-                proxy_pass http://localhost:8001;
-        }
-}
+  location / {
+    proxy_pass http://localhost:8001;
+  }
 ```
