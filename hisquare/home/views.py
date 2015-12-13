@@ -185,8 +185,8 @@ def get_about_page(request):
     return JsonResponse(payload)
     
     
-def get_merchants_by_category(request, catname):
-    categorymodel = get_object_or_404(ShopCategory, name__iexact=catname)
+def get_merchants_by_category(request, catcode):
+    categorymodel = get_object_or_404(ShopCategory, slug=catcode)
 
     shops = Business.objects.filter(category_id=categorymodel.id)
     catimages = CategoryImage.objects.filter(category_id=categorymodel.id)
