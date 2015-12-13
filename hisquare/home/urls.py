@@ -1,5 +1,3 @@
-__author__ = 'UTURNMI'
-
 from django.conf.urls import patterns, url
 import home.views
 
