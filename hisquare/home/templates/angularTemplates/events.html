@@ -9,7 +9,6 @@
 	<h1 class="wh">Today</h1>
 	
 	<div ng-repeat="event in events.events.todaysEvents" id="{$ event.concat $}" class="box-transp">
-		{$ event.concat $}
 		<div class="row">
 			<div ng-show="event.eventimage" class="col-sm-4 event-image">
 				<img ng-src="//hsmadev.highlands-square.com/media/{$ event.eventimage $}">
