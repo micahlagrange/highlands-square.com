@@ -197,7 +197,7 @@ def get_merchants_by_category(request, catcode):
     payload = {
         "carousel_imgs": carousel_imgs,
         "merchants": merchants_serializer(shops),
-        "categoryname": catname,
+        "categoryname": catcode,
     }
     
     return JsonResponse(payload)
