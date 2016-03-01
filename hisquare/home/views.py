@@ -74,8 +74,8 @@ def index(request):
     
     return render(request, 'home/index.html')
 
-def category(request, catname):
-    categorymodel = get_object_or_404(ShopCategory, name__iexact=catname)
+def category(request, catcode):
+    categorymodel = get_object_or_404(ShopCategory, slug=catcode)
 
     shops = Business.objects.filter(category_id=categorymodel.id)
     catimages = CategoryImage.objects.filter(category_id=categorymodel.id)
@@ -185,8 +185,8 @@ def get_about_page(request):
     return JsonResponse(payload)
     
     
-def get_merchants_by_category(request, catname):
-    categorymodel = get_object_or_404(ShopCategory, name__iexact=catname)
+def get_merchants_by_category(request, catcode):
+    categorymodel = get_object_or_404(ShopCategory, slug=catcode)
 
     shops = Business.objects.filter(category_id=categorymodel.id)
     catimages = CategoryImage.objects.filter(category_id=categorymodel.id)
@@ -197,7 +197,7 @@ def get_merchants_by_category(request, catname):
     payload = {
         "carousel_imgs": carousel_imgs,
         "merchants": merchants_serializer(shops),
-        "categoryname": catname,
+        "categoryname": catcode,
     }
     
     return JsonResponse(payload)
