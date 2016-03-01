@@ -35,7 +35,7 @@ end
 # Use rsync so the same files are not constantly deployed over and over unless the version changes
 puts "src: #{SRC}/* | host #{HOST} | destination dir: #{DESTDIR}" 
 def deploy_static_files ()
-	system("rsync", "-a", "--no-o", "--no-p", "#{USER}@#{SRC}/*", "#{HOST}:#{DESTDIR}")
+	system("rsync", "-az", "--no-o", "--no-p", "#{USER}@#{SRC}/*", "#{HOST}:#{DESTDIR}")
 	# system("ssh", "-t", "#{USER}@#{HOST}", "sudo chmod -R 755 #{DESTDIR}")
 	# system("ssh", "-t", "#{USER}@#{HOST}", "sudo chown -R www-data:www-data #{DESTDIR}")
 end
@@ -62,7 +62,7 @@ def make_package (tmp_dir)
         zip_name = "#{src_dirname}_#{datestr}.tar.gz"
 	
 	puts "Copying files from #{SRC} to #{tmp_dir}..."
-	system("rsync -r #{SRC} --exclude static --exclude media --exclude __pycache__ --exclude '*.sqlite3' --exclude '*.pyc' --exclude .c9 #{tmp_dir}")
+	system("rsync -az #{SRC} --exclude static --exclude media --exclude __pycache__ --exclude '*.sqlite3' --exclude '*.pyc' --exclude .c9 #{tmp_dir}")
 	
 	
 	Dir.chdir tmp_dir
