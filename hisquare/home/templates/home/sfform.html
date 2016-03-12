@@ -1,7 +1,150 @@
-{% extends 'home/index.html' %}
-{% load staticfiles %}
-{% block content %}
-  <div id="sfform">
-    <iframe src="http://hma.web501.com" style="width:800px;height:1800px;border:0px;"><iframe>
-  </div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Highlands Square Merchants Association</title>
+    
+    <link rel="shortcut icon" href="{%  static 'home/images/favicon.ico' %}">
+
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <!--Angular-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-touch.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-sanitize.min.js"></script>
+    <script src="{% static 'js/angular-modal-service.js' %}"></script>
+    <!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap-modal.min.js"></script>-->
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'home/ellipsis.css' %}" rel="stylesheet">
+    <link href="{% static 'home/shop-homepage.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}">
+    
+    <!--Fonts-->
+    <link href="//fonts.googleapis.com/css?family=Titillium+Web|Oswald|Open+Sans|Khula|Cantarell:400,800" rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!--Background image-->
+    <!-- Page Content <-->
+    <div ng-app="hisquareApp">
+        <div ng-controller="catsController as cats" id="pagecontainer" class="container-fluid">
+            <!--Store the current category for use in angular app-->
+            <!--<div id="getActiveTab" style="display:none">{{ categoryname }}</div>-->
+            <div class="row match">
+                <div id="nav-sidebar" class="col-sm-2 col-sm-offset-1 text-center">
+                    <!-- Desktop sidebar-->
+                    <div id="sidebar" style="display:none;">
+                        <a ng-click="cats.setActiveTab('')" ng-href="/#/">
+                            <img id="logoimg" src="{% static 'home/images/hisquarelogo_fixed_transparency.gif' %}" class="full-logo">
+                        </a>
+
+                        <div class="list-group">
+                            <a ng-click="cats.setActiveTab('about')" class="list-group-item" ng-class="{'activeitem' : cats.activeTab == 'about'}" ng-href="/#/about">About</a>
+                            <a ng-click="cats.setActiveTab('events')" class="list-group-item" ng-class="{'activeitem' : cats.activeTab == 'events'}" ng-href="/#/events">Events</a>
+                        </div>
+                        <div id="category-tabs" class="list-group">
+                            <a ng-repeat="cat in cats.categories" ng-click="cats.setActiveTab('{$ cat.slug $}')" ng-class="{'activeitem' : cats.activeTab == '{$ cat.slug $}'}" class="list-group-item" ng-href="/#/merchants/{$ cat.slug $}">
+                				{$ cat.name $}
+                			</a>
+                        </div>
+                    </div>
+                    <!--End desktop sidebar-->
+                    <!--Mobile sidebar-->
+                    <nav id="sidebar-mobile" class="navbar navbar-default navbar-fixed-top" style="display:none;">
+                        <div class="container-fluid">
+                            <ul class="nav nav-tabs">
+                                <li role="presentation">
+                                    <a class="navbar-brand" href="{% url 'index' %}">
+                                      <img id="logo-nav-brand" class="pull-right" src="{% static 'home/images/hisquarelogo_fixed_transparency.gif' %}">
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="/#/about" ng-class="{ 'activeitem': $route.current.activeTab == 'about' }">About</a>
+                                </li>   
+                                <li role="presentation">
+                                    <a href="/#/events" ng-class="{ 'activeitem': $route.current.activeTab == 'events' }">Events</a>
+                                </li>
+                                <li role="presentation" class="dropdown pull-right">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <!--Angular template-->
+                                        <li ng-repeat="cat in cats.categories" ng-class="{'activeitem' : cats.activeTab == '{$ cat.slug $}'}">
+                                            <a ng-href="/#/merchants/{$ cat.slug $}">
+                                                {$ cat.slug $}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!--End Mobile sidebar-->
+                </div>
+                <!--/#nav-sidebar-->
+                <div id="main-pane" class="col-sm-8">
+                    
+                    <!-- Angular routes inject here -->
+    				<div ng-view></div>
+    				<!-- End angular template injection -->
+    				
+    				<!--Django templates-->
+    			  <iframe src="http://hma.web501.com" style="width:800px;height:1800px;border:0px;"><iframe>
+    				<!--End django templates-->
+    				
+                </div>
+                <!--/#main-pane-->
+            </div>
+            <!--/.row-->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!--/Angular-->
+    
+    <div id="footer" class="container-fluid navbar-static-bottom">
+         <!--Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">Official Highland Merchants Association Website &copy; 2003-{%  now "Y" %}</p>
+            </div>
+        </footer>
+    </div>
+    <!-- /.container -->
+    
+	<!-- Custom js -->
+    <script src="{% static 'home/js/custom.js' %}"></script>
+    <!--<script src="{% static 'home/js/filter.js' %}"></script>-->
+
+    <!--Angular-->
+    <script src="{%static 'home/js/hisquare.js' %}"></script>
+</body>
+</html>
