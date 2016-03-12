@@ -12,8 +12,7 @@ DATABASES = {
   }
 }
 
-MEDIA_ROOT = '/usr/local/highlands-square.com/media'
-STATIC_ROOT = '/usr/local/highlands-square.com/static'
+MEDIA_ROOT = os.path.join(BASE_DIR, "home", "media")
 
 # Static, media urls
 STATIC_URL = '//dev.highlands-square.com/static/'
