@@ -8,4 +8,5 @@ urlpatterns = patterns(
     url(r'^details/(?P<pk>\d+)/$', home.views.details, name='details'),
     url(r'^merchants/(?P<catcode>[-_\w]+)/$', home.views.category, name='category'),
     url(r'^events/$', home.views.events, name='events'),
+    url(r'^streetfair-signup/$', home.views.sfform, name='sfform'),
 )

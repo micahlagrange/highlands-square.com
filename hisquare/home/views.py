@@ -134,6 +134,8 @@ def events(request):
         'todays_events': todays_events,
         'active_item': 'events'})
 
+def sfform(request):
+    return render(request, 'home/sfform.html', {})
         
         
 # ANGULAR VIEWS:
