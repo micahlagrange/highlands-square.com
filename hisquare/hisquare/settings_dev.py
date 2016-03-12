@@ -16,8 +16,8 @@ MEDIA_ROOT = '/usr/local/highlands-square.com/media'
 STATIC_ROOT = '/usr/local/highlands-square.com/static'
 
 # Static, media urls
-STATIC_URL = '//127.0.0.1/static/'
-MEDIA_URL = '//127.0.0.1/media/'
+STATIC_URL = '//pi.repos.tv:8000/static/'
+MEDIA_URL = '//pi.repos.tv:8000/media/'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
