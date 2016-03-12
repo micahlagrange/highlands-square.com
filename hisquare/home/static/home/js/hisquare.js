@@ -44,8 +44,8 @@
                     controller: 'merchantsController as merch',
                     resolve: {
                         merchantData: function ($route, getService) {
-                            var catName = $route.current.params.category;
-                            getService.setUrl('/get/merchants/' + catName);
+                            var catslug = $route.current.params.category;
+                            getService.setUrl('/get/merchants/' + catslug);
                             return sendGetRequest(getService);
                         }
                     }
