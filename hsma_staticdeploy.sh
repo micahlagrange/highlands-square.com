@@ -3,4 +3,4 @@
 
 set -e
 
-rsync -az --no-o --no-p highsquare/home/static/ hsma01p:/www/hisquare/static/
+rsync -az --no-o --no-p hisquare/home/static/ hsma01p:/www/hisquare/static/
