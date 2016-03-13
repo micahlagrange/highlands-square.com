@@ -92,6 +92,7 @@ class EventLink(models.Model):
   event = models.ForeignKey(Event, null=False, blank=False)
   text = models.CharField(max_length=200, null=True, blank=True)
   href = models.URLField(max_length=200, null=True, blank=True)
+  url = models.URLField(max_length=200, null=True, blank=True)
 
   def __str__(self):
     return '"{}" event link | {}'.format(self.event.title, self.text)
