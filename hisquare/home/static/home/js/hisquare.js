@@ -13,7 +13,6 @@
             
             // Routes
             $routeProvider
-                // Events route
                 .when('/events', {
                     templateUrl: '/pages/events',
                     controller: 'eventsController as events',
@@ -49,6 +48,9 @@
                             return sendGetRequest(getService);
                         }
                     }
+                })
+                .when('/street-fair-signup', {
+                    templateUrl: '/pages/sfform',
                 })
                 .otherwise({
                     redirectTo: "/"
