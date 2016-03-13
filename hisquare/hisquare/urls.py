@@ -22,7 +22,8 @@ urlpatterns = patterns('',
     url(r'^pages/about/$', TemplateView.as_view(template_name="angularTemplates/about.html")),
     url(r'^pages/merchants/$', TemplateView.as_view(template_name="angularTemplates/merchants.html")),
     url(r'^pages/details/$', TemplateView.as_view(template_name="angularTemplates/details.html")),
-    
+    url(r'^pages/sfform/$', TemplateView.as_view(template_name="angularTemplates/sfform.html")),
+
     # Redirect
     url(r'^$', home.views.index, name='index'),
     
