@@ -17,7 +17,7 @@
 				<h2 class="event-title">{$ event.title $}</h2>
 				<h4 class="event-date">{$ event.startdate | date:"EEE | MMM dd, yyyy | h:mma" $} - {$ event.enddate | date:"h:mma" $}</h4>
         <div class="event-text">{$ event.description $}</div>
-        <div ng-repeat="link in links" class="event-links">{$ link $}</div>
+        <div ng-repeat="link in event.links" class="event-links">{$ link $}</div>
 			</div>
 		</div>
 	</div>
@@ -37,6 +37,7 @@
 				<h2 class="event-title">{$ event.title $}</h2>
 				<h4 class="event-date">{$ event.startdate | date:"EEE | MMM dd, yyyy | h:mma" $} - {$ event.enddate | date:"h:mma" $}</h4>
 				<div class="event-text">{$ event.description $}</div>
+        <div ng-repeat="link in event.links" class="event-links">{$ link $}</div>
 			</div>
 		</div>
 	</div>
