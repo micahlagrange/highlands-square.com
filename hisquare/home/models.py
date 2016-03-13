@@ -5,6 +5,7 @@ import datetime
 from django.template.defaultfilters import slugify
 
 
+# Create your models here.
 class AboutPage(models.Model):
 	text = models.TextField(null=True, blank=False)
 	date_updated = models.DateTimeField(null=True, blank=False)
@@ -23,7 +24,6 @@ class AboutPromotion(models.Model):
 	date_quoted = models.DateTimeField(null=True, blank=False)
 	aboutpage = models.ForeignKey(AboutPage, null=True, blank=False)
 
-# Create your models here.
 class ShopCategory(models.Model):
 	name = models.CharField(max_length=200, null=True, blank=False, unique=True)
 	slug = models.SlugField(null=True)
