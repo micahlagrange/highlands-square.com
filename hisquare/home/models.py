@@ -17,11 +17,13 @@ class AboutPage(models.Model):
 	def __str__(self):
 		return '{}'.format(self.text[0:50])
 
+
 class AboutPromotion(models.Model):
 	quote = models.TextField(null=True, blank=False)
 	promoter = models.CharField(max_length=200, null=True, blank=False)
 	date_quoted = models.DateTimeField(null=True, blank=False)
 	aboutpage = models.ForeignKey(AboutPage, null=True, blank=False)
+
 
 class ShopCategory(models.Model):
 	name = models.CharField(max_length=200, null=True, blank=False, unique=True)
