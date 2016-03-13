@@ -48,7 +48,7 @@ def event_serializer(events):
     enddate = datetime.datetime.combine(e['date'], e['endtime'])
     d = dict(
         title=e['title'],
-        id=event['pk'],
+        eid=event['pk'],
         startdate=startdate,
         enddate=enddate,
         concat=e['title'].split()[0] + str(e['date']).replace('-', ''),
@@ -57,7 +57,7 @@ def event_serializer(events):
     )  
     # Add more data to dict that needs more coding around it
     d['description'] = defaultfilters.linebreaks(e['description'])
-    d['links'].extend( link for links in EventLink.objects.get(event__pk=d[id]) )
+    d['links'].extend( link for links in EventLink.objects.get(event__pk=d[eid]) )
     actual_data.append(d)
   return actual_data
 
