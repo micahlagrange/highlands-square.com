@@ -58,7 +58,7 @@ def event_serializer(events):
     # Add more data to dict that needs more coding around it
     d['description'] = defaultfilters.linebreaks(e['description'])
     try:
-      d['links'].extend(list( link for links in EventLink.objects.get(pk=d[id]) ))
+      d['links'].extend( link for links in EventLink.objects.get(event__pk=d[id]) )
     except Exception:
       pass
     actual_data.append(d)
