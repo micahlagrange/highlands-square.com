@@ -57,7 +57,7 @@ def event_serializer(events):
     )  
     # Add more data to dict that needs more coding around it
     d['description'] = defaultfilters.linebreaks(e['description'])
-    d['links'].extend( serializers.serialize('python', [link for link in EventLink.objects.filter(event__pk=d['eid'])] ))
+    d['links'].extend( [x['fields'] for x in serializers.serialize('python', [link for link in EventLink.objects.filter(event__pk=d['eid'])] )] )
     actual_data.append(d)
   return actual_data
 
