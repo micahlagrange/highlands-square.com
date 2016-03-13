@@ -14,7 +14,7 @@ class AboutAdmin(admin.ModelAdmin):
   ]
 
 class EventLinkInline(admin.TabularInline):
-  model = Event
+  model = EventLink
 
 class EventAdmin(admin.ModelAdmin):
   inlines = [
