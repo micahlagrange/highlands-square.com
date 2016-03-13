@@ -17,7 +17,6 @@ class AboutPage(models.Model):
 	def __str__(self):
 		return '{}'.format(self.text[0:50])
 
-
 class AboutPromotion(models.Model):
 	quote = models.TextField(null=True, blank=False)
 	promoter = models.CharField(max_length=200, null=True, blank=False)
