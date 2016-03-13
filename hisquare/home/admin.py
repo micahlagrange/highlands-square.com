@@ -5,13 +5,21 @@ from home.models import *
 # Register your models here.
 
 class AboutPromoInline(admin.TabularInline):
-	model = AboutPromotion
+  model = AboutPromotion
 
 class AboutAdmin(admin.ModelAdmin):
-	fields = ('text',)
-	inlines = [
-		AboutPromoInline,
-	]
+  fields = ('text',)
+  inlines = [
+    AboutPromoInline,
+  ]
+
+class EventLinkInline(admin.TabularInline):
+  model = Event
+
+class EventAdmin(admin.ModelAdmin):
+  inlines = [
+    EventLinkInline,
+  ]
 
 class ShopCategoryAdmin(admin.ModelAdmin):
   fields = ('name',)
@@ -19,7 +27,5 @@ class ShopCategoryAdmin(admin.ModelAdmin):
 admin.site.register(ShopCategory, ShopCategoryAdmin)
 admin.site.register(Business)
 admin.site.register(CategoryImage)
-
 admin.site.register(AboutPage, AboutAdmin)
-
-admin.site.register(Event)
+admin.site.register(Event, EventAdmin)
