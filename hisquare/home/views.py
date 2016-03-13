@@ -54,13 +54,13 @@ def event_serializer(events):
         concat=e['title'].split()[0] + str(e['date']).replace('-', ''),
         eventimage=e['eventimage'],
         links=[]
-      )  
-      # Add more data to dict that needs more coding around it
-      d['description'] = defaultfilters.linebreaks(e['description'])
-      try:
-        d['links'].extend( link for links in EventLink.objects.get(pk=d[id]) ) 
-      except Exception:
-        pass
+    )  
+    # Add more data to dict that needs more coding around it
+    d['description'] = defaultfilters.linebreaks(e['description'])
+    try:
+      d['links'].extend( link for links in EventLink.objects.get(pk=d[id]) ) 
+    except Exception:
+      pass
     actual_data.append(d)
   return actual_data
 
