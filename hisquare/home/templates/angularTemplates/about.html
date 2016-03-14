@@ -25,7 +25,7 @@
         
         <div class="col-md-6">        
             <h2><span class="glyphicon glyphicon-th"></span> Merchants</h2>
-            <a ng-repeat="cat in cats.categories" ng-href="/#/merchants/{$ cat.name $}" class="btn btn-primary aboutpage-button col-xs-12" ng-click="cats.setActiveTab('{$ cat.name $}')">
+            <a ng-repeat="cat in cats.categories" ng-href="/#/merchants/{$ cat.slug $}" class="btn btn-primary aboutpage-button col-xs-12" ng-click="cats.setActiveTab('{$ cat.slug $}')">
                 {$ cat.name $}
             </a>
         </div>
