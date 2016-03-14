@@ -100,7 +100,7 @@
                     <!--Angular template-->
                     <li ng-repeat="cat in cats.categories" ng-class="{'activeitem' : cats.activeTab == '{$ cat.slug $}'}">
                       <a ng-href="/#/merchants/{$ cat.slug $}">
-                        {$ cat.slug $}
+                        {$ cat.name $}
                       </a>
                     </li>
                   </ul>
