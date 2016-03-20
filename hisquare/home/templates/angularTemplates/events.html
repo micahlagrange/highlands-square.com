@@ -18,7 +18,7 @@
 				<h4 class="event-date">{$ event.startdate | date:"EEE | MMM dd, yyyy | h:mma" $} - {$ event.enddate | date:"h:mma" $}</h4>
         <div class="event-text" ng-bind-html="event.description"></div>
         <div ng-repeat="link in event.links" class="event-links">
-          <span class="glyphicon glyphicon-link" style="padding: 1em;"></span><a target="_blank" href="{$ link.url $}">{$ link.text $}</a>
+          <span class="glyphicon glyphicon-link" style="padding: 1em;"></span><a href="{$ link.url $}">{$ link.text $}</a>
         </div>
 			</div>
 		</div>
@@ -40,7 +40,7 @@
 				<h4 class="event-date">{$ event.startdate | date:"EEE | MMM dd, yyyy | h:mma" $} - {$ event.enddate | date:"h:mma" $}</h4>
         <div class="event-text" ng-bind-html="event.description"></div>
         <div ng-repeat="link in event.links" class="event-links">
-          <span class="glyphicon glyphicon-link" style="padding: 1em;"></span><a target="_blank" href="{$ link.url $}">{$ link.text $}</a>
+          <span class="glyphicon glyphicon-link" style="padding: 1em;"></span><a href="{$ link.url $}">{$ link.text $}</a>
         </div>
 			</div>
 		</div>
