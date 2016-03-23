@@ -24,8 +24,8 @@ STATIC_ROOT = '/www/hisquare/static'
 STATIC_DIR = 'www/hisquare/static'
 
 # Static, media urls
-STATIC_URL = '//hsmadev.highlands-square.com/static/'
-MEDIA_URL = '//hsmadev.highlands-square.com/media/'
+STATIC_URL = '//highlands-square.com/static/'
+MEDIA_URL = '//highlands-square.com/media/'
 
 
 SERVER_EMAIL = 'hsmasite@gmail.com'
