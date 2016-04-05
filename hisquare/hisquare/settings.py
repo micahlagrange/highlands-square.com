@@ -33,6 +33,7 @@ with open('/etc/highlands-square.com.conf/secretkey') as f:
 	    
 ALLOWED_HOSTS = [
     'highlands-square.com', 
+    'www.highlands-square.com',
     '104.236.153.248', 
     'localhost', 
     '127.0.0.1',
