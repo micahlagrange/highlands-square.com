@@ -166,9 +166,8 @@ blockquote > footer { padding: 0; margin: 0 0 1em 0; }
 }
 
 .event-image-logo > img {
-    max-width: 45%;
-    padding: 1em 2% 0 2%;
-    float: left;
+    max-width: 30%;
+    padding: 1em 1em 0 1em;
 }
 
 #footer{
